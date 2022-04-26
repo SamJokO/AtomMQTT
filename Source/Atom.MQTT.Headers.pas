@@ -40,6 +40,23 @@ type
 
   end;
 
+  TMQTTConnectFlags = packed record
+  private
+    function                    GetBits(const AIndex: Integer): Integer;
+    procedure                   SetBits(const AIndex: Integer; const AValue: Integer);
+  public
+    Flags                       : Byte;
+
+    property                    UserName: Integer index $0701 read GetBits write SetBits;
+    property                    Password: Integer index $0601 read GetBits write SetBits;
+    property                    WillRetain: Integer index $0501 read GetBits write SetBits;
+    property                    WillQos: Integer index $0302 read GetBits write SetBits;
+    property                    WillFlag: Integer index $0201 read GetBits write SetBits;
+    property                    CleanStart: Integer index $0101 read GetBits write SetBits;
+    property                    Reserved: Integer index $0001 read GetBits write SetBits;
+
+  end;
+
 implementation
 
 function GetDWordBits(const ABits: Byte; const AIndex: Integer): Integer;
@@ -67,6 +84,18 @@ begin
 end;
 
 procedure TMQTTFlags.SetBits(const AIndex, AValue: Integer);
+begin
+  SetDWordBits(Flags, AIndex, AValue);
+end;
+
+{ TMQTTConnectFlags }
+
+function TMQTTConnectFlags.GetBits(const AIndex: Integer): Integer;
+begin
+  Result                      := GetDWordBits(Flags, AIndex);
+end;
+
+procedure TMQTTConnectFlags.SetBits(const AIndex, AValue: Integer);
 begin
   SetDWordBits(Flags, AIndex, AValue);
 end;
