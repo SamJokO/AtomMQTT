@@ -31,6 +31,12 @@ type
                                   EXACTLY_ONCE        // 2
                                 );
 
+  TMQTTVersion                = (
+                                  V_PREV_3_1,         // Previous 3.1 and with 3.1
+                                  V_NEXT_3_1_1,       // Next 3.1 without 3.1
+                                  V_NEXT_5            // Next 5 without 5
+                                );
+
 {
                        |   7  |  6  |  5  |  4  |  3  |  2  |  1  |  0  |
   FixedHeader Byte(1)  |   Control Packet Type  |        Flags          |
