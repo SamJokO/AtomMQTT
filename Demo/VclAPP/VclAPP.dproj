@@ -111,6 +111,7 @@
         </DCCReference>
         <DCCReference Include="..\..\Source\Atom.MQTT.Interfaces.pas"/>
         <DCCReference Include="..\..\Source\Atom.MQTT.Headers.pas"/>
+        <DCCReference Include="..\..\Source\Atom.MQTT.Socket.Indy.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
