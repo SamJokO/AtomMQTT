@@ -69,6 +69,7 @@ begin
         begin
           //
           // 분할해서 패킷 받는거 확인
+          FSocket.IOHandler.InputBuffer.PeekByte()
         end;
       end;
     end

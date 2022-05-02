@@ -17,6 +17,15 @@ type
   TOnMQTTSocketConnected      = procedure (ASender: TObject) of object;
   TOnMQTTSocketDisconnect     = procedure (ASender: TObject) of object;
 
+  /// <summary>
+  ///  MQTT 패킷 분석 및 조합 하여 socket으로 전달하는 인터페이스
+  /// </summary>
+  IMQTTParser = interface ['{3CA71611-D9A2-4CFA-A03C-E4C33FB8F22C}']
+    /// <summary>
+    ///  Socket에서 받은 스트림 (TBytes)를 받아서 분석 처리하는 곳
+    function                    DoParse(ABuffer: TBytes): Boolean;
+  end;
+
   IMQTTSocket = interface ['{2FD72D7F-E950-4592-B9E0-C9176B6B483B}']
     function                    GetIsTerminated: Boolean;
 
